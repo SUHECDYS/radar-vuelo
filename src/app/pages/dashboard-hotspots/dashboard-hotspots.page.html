@@ -1,1 +1,31 @@
-<p>dashboard-hotspots works!</p>
+<div style="padding: 20px; font-family: sans-serif;">
+  <h2>Radar de Tráfico Aéreo Regional</h2>
+  <p>Vuelos detectados en vivo en el sector: <strong>{{ cantidadVuelos }}</strong> aeronaves.</p>
+
+  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
+    <thead style="background-color: #f2f2f2;">
+      <tr>
+        <th>Callsign (Vuelo)</th>
+        <th>País de Origen</th>
+        <th>Altitud (m)</th>
+        <th>Velocidad (km/h)</th>
+        <th>¿En Tierra?</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (avion of listaAviones; track avion[0]) {
+        <tr>
+          <td style="color: blue; font-weight: bold;">{{ avion[1] ? avion[1].trim() : 'N/A' }}</td>
+          <td>{{ avion[2] }}</td>
+          <td>{{ avion[7] ? (avion[7] | number:'1.0-0') : '0' }} m</td>
+          <td>{{ avion[9] ? (avion[9] * 3.6 | number:'1.0-0') : '0' }} km/h</td>
+          <td>{{ avion[8] ? '🟢 Sí' : '✈️ En vuelo' }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5" style="text-align: center;">No se detectaron vuelos en este momento o la API está sobrecargada.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
