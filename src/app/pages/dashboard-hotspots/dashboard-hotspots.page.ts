@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlightService } from '../../core/services/flight.service'; // Asegura que la ruta a tu servicio sea correcta
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-dashboard-hotspots',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './dashboard-hotspots.page.html',
   styleUrls: ['./dashboard-hotspots.page.css']
 })

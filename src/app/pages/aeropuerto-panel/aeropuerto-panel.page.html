@@ -1,0 +1,43 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <a href="/dashboard" style="text-decoration: none; color: #3498db; font-weight: bold;">⬅️ Volver al Radar General</a>
+  
+  <h2 style="margin-top: 15px;">🏢 Panel Operativo de Aeropuerto: <span style="color: #e67e22;">{{ codigoIcao | uppercase }}</span></h2>
+  <h3>Aeronaves en Sector de Aproximación / Operaciones Activas</h3>
+
+  @if (cargando) {
+    <p>🔄 Filtrando tráfico aéreo regional para {{ codigoIcao }}...</p>
+  } @else {
+    <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
+      <thead style="background-color: #f2f2f2;">
+        <tr>
+          <th>Callsign (Vuelo)</th>
+          <th>País de Origen</th>
+          <th>Altitud Actual</th>
+          <th>Velocidad</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (vuelo of vuelosArribo; track vuelo.callsign) {
+          <tr>
+            <td style="font-weight: bold; color: #2c3e50;">{{ vuelo.callsign }}</td>
+            <td>{{ vuelo.pais }}</td>
+            <td>{{ vuelo.altitud }} m</td>
+            <td>{{ vuelo.velocidad }} km/h</td>
+            <td>
+              @if (vuelo.enTierra) {
+                <span style="color: #27ae60; font-weight: bold;">🟢 En Plataforma</span>
+              } @else {
+                <span style="color: #2980b9;">✈️ En Aproximación</span>
+              }
+            </td>
+          </tr>
+        } @empty {
+          <tr>
+            <td colspan="5" style="text-align: center;">No se detectaron operaciones en el perímetro en este momento.</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

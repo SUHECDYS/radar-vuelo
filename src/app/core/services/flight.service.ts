@@ -10,11 +10,15 @@ export class FlightService {
   private apiUrl = '/api-opensky/api/states/all?lamin=-55.0&lomin=-75.0&lamax=-22.0&lomax=-50.0';
   constructor(private http: HttpClient) { }
 
-  /**
-   * Obtiene todos los estados de vuelos activos en la región delimitada
-   * @returns Un Observable con la respuesta cruda de la API
-   */
   getLiveFlights(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
+  }
+  getAirportArrivals(airportIcao: string): Observable<any> {
+   
+    const ahora = Math.floor(Date.now() / 1000);
+    const haceDosHoras = ahora - (2 * 60 * 60);
+    
+    const url = `/api-opensky/api/flights/arrival?airport=${airportIcao}&begin=${haceDosHoras}&end=${ahora}`;
+    return this.http.get<any>(url);
   }
 }

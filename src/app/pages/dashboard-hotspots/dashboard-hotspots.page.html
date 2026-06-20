@@ -15,11 +15,15 @@
     <tbody>
       @for (avion of listaAviones; track avion[0]) {
         <tr>
-          <td style="color: blue; font-weight: bold;">{{ avion[1] ? avion[1].trim() : 'N/A' }}</td>
+          <td style="font-weight: bold;">
+            <a [routerLink]="['/vuelo', avion[1] ? avion[1].trim() : 'N/A']" style="color: blue; text-decoration: none;">
+              {{ avion[1] ? avion[1].trim() : 'N/A' }}
+            </a>
+          </td>
           <td>{{ avion[2] }}</td>
           <td>{{ avion[7] ? (avion[7] | number:'1.0-0') : '0' }} m</td>
           <td>{{ avion[9] ? (avion[9] * 3.6 | number:'1.0-0') : '0' }} km/h</td>
-          <td>{{ avion[8] ? '🟢 Sí' : '✈️ En vuelo' }}</td>
+          <td>{{ avion[8] ? ' Sí' : 'En vuelo' }}</td>
         </tr>
       } @empty {
         <tr>
