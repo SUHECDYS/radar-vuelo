@@ -1,1 +1,190 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #2c3e50;
+}
+
+.page-container {
+  padding: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-size: 28px;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #7f8c8d;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.app-table thead {
+  background-color: #f2f2f2;
+}
+
+.app-table th, 
+.app-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eef2f3;
+}
+
+.table-link {
+  color: #3498db;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.table-link:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+.table-empty {
+  text-align: center;
+  color: #7f8c8d;
+  padding: 20px !important;
+}
+
+.airport-highlight {
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.status-badge {
+  font-weight: bold;
+}
+
+.status-ground {
+  color: #27ae60;
+}
+
+.status-flight {
+  color: #2980b9;
+}
+
+.detail-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.flight-card {
+  border: 2px solid #2c3e50;
+  border-radius: 8px;
+  margin-top: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.card-callsign {
+  margin: 5px 0 0 0;
+  color: #f1c40f;
+  letter-spacing: 2px;
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.transponder-code {
+  background: #eee;
+  padding: 2px 4px;
+}
+
+.badge {
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.badge-ground {
+  background-color: #2ec4b6;
+}
+
+.badge-flight {
+  background-color: #0077b6;
+}
+
+.text-loading {
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.card-divider {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.card-footer-text {
+  font-size: 11px;
+  color: #95a5a6;
+  text-align: center;
+  margin: 0;
+}
+
+.error-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.error-title {
+  font-size: 18px;
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.error-subtitle {
+  color: #7f8c8d;
+  font-size: 14px;
+}

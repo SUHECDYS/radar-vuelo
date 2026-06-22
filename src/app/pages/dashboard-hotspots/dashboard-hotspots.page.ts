@@ -18,7 +18,6 @@ export class DashboardHotspotsPage implements OnInit {
   ngOnInit(): void {
     this.flightService.getLiveFlights().subscribe({
       next: (data) => {
-        // OpenSky devuelve los aviones en un array llamado 'states'
         this.listaAviones = data.states || [];
         this.cantidadVuelos = this.listaAviones.length;
         console.log('Aviones capturados en la región:', this.listaAviones);

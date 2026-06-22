@@ -1,9 +1,9 @@
-<div style="padding: 20px; font-family: sans-serif;">
-  <h2>Radar de Tráfico Aéreo Regional</h2>
-  <p>Vuelos detectados en vivo en el sector: <strong>{{ cantidadVuelos }}</strong> aeronaves.</p>
+<div class="page-container">
+  <h2 class="main-title">Radar de Tráfico Aéreo Regional</h2>
+  <p class="subtitle">Vuelos detectados en vivo en el sector: <strong>{{ cantidadVuelos }}</strong> aeronaves.</p>
 
-  <table border="1" cellpadding="10" style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
-    <thead style="background-color: #f2f2f2;">
+  <table class="app-table">
+    <thead>
       <tr>
         <th>Callsign (Vuelo)</th>
         <th>País de Origen</th>
@@ -15,19 +15,19 @@
     <tbody>
       @for (avion of listaAviones; track avion[0]) {
         <tr>
-          <td style="font-weight: bold;">
-            <a [routerLink]="['/vuelo', avion[1] ? avion[1].trim() : 'N/A']" style="color: blue; text-decoration: none;">
+          <td>
+            <a [routerLink]="['/vuelo', avion[1] ? avion[1].trim() : 'N/A']" class="table-link">
               {{ avion[1] ? avion[1].trim() : 'N/A' }}
             </a>
           </td>
           <td>{{ avion[2] }}</td>
           <td>{{ avion[7] ? (avion[7] | number:'1.0-0') : '0' }} m</td>
           <td>{{ avion[9] ? (avion[9] * 3.6 | number:'1.0-0') : '0' }} km/h</td>
-          <td>{{ avion[8] ? ' Sí' : 'En vuelo' }}</td>
+          <td>{{ avion[8] ? 'Sí' : 'En vuelo' }}</td>
         </tr>
       } @empty {
         <tr>
-          <td colspan="5" style="text-align: center;">No se detectaron vuelos en este momento o la API está sobrecargada.</td>
+          <td colspan="5" class="table-empty">No se detectaron vuelos en este momento o la API está sobrecargada.</td>
         </tr>
       }
     </tbody>

@@ -35,13 +35,9 @@ export class AeropuertoPanelPage implements OnInit {
           }));
 
           if (this.codigoIcao.toUpperCase() === 'SAEZ') {
-            // 🔍 Salvavidas: Intentamos filtrar por Aerolíneas/Flybondi
             const locales = todosLosVuelos.filter((v: any) => 
               v.callsign.startsWith('ARG') || v.callsign.startsWith('FBZ')
             );
-
-            // Si hay locales los mostramos, si justo no hay ninguno en este segundo,
-            // mostramos los primeros 8 vuelos del radar general para llenar la tabla
             this.vuelosArribo = locales.length > 0 ? locales.slice(0, 8) : todosLosVuelos.slice(0, 8);
           } else {
             this.vuelosArribo = todosLosVuelos.slice(0, 6);

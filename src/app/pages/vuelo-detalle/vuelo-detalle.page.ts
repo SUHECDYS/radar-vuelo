@@ -21,20 +21,17 @@ export class VueloDetallePage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // Capturamos el parámetro del vuelo desde la URL
     this.callsign = this.route.snapshot.paramMap.get('id') || '';
 
     if (this.callsign) {
       this.flightService.getLiveFlights().subscribe({
         next: (data: any) => {
           if (data && data.states) {
-            // Buscamos el avión que coincida con el callsign
             const avionEncontrado = data.states.find((est: any) => 
               est[1] && est[1].trim().toUpperCase() === this.callsign.toUpperCase()
             );
 
             if (avionEncontrado) {
-              // Mapeamos la ficha técnica con todas las propiedades de OpenSky
               this.vuelo = {
                 icao24: avionEncontrado[0],
                 callsign: avionEncontrado[1].trim(),
