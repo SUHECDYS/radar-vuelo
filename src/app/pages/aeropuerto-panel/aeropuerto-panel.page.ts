@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FlightService } from '../../core/services/flight.service';
 
 @Component({
   selector: 'app-aeropuerto-panel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './aeropuerto-panel.page.html',
   styleUrls: ['./aeropuerto-panel.page.css']
 })
