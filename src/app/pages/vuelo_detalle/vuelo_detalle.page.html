@@ -1,25 +1,24 @@
 <div class="page-container detail-container">
-  <a href="/dashboard" class="back-link">Volver al Radar General</a>
-
+  <a href="/dashboard" class= "button">Volver</a>
   <div class="flight-card">
     <div class="card-header">
-      <h2 class="card-title">Ficha Técnica de Vuelo</h2>
-      <h1 class="card-callsign">{{ callsign | uppercase }}</h1>
+      <h2>Ficha Técnica de Vuelo</h2>
+      <h1>{{ callsign | uppercase }}</h1>
     </div>
 
     <div class="card-body">
       @if (cargando) {
-        <p class="text-loading">Rastreando señal de la aeronave...</p>
+        <p>Rastreando señal de la aeronave...</p>
       } @else if (vuelo) {
         <div class="card-grid">
-          <div class="grid-column">
+          <div>
             <p><strong>País de Registro:</strong><br> {{ vuelo.pais }}</p>
             <p><strong>Altitud:</strong><br> {{ vuelo.altitud }} metros</p>
             <p><strong>Velocidad:</strong><br> {{ vuelo.velocidad }} km/h</p>
             <p><strong>Rumbo/Dirección:</strong><br> {{ vuelo.direccion }}°</p>
           </div>
-          <div class="grid-column">
-            <p><strong>Transponder (ICAO24):</strong><br> <code class="transponder-code">{{ vuelo.icao24 }}</code></p>
+          <div>
+            <p><strong>Transponder (ICAO24):</strong><br> <code>{{ vuelo.icao24 }}</code></p>
             <p><strong>Latitud:</strong><br> {{ vuelo.latitud }}</p>
             <p><strong>Longitud:</strong><br> {{ vuelo.longitud }}</p>
             <p><strong>Estado:</strong><br> 
@@ -32,14 +31,14 @@
           </div>
         </div>
         
-        <hr class="card-divider">
+        <hr>
         <p class="card-footer-text">
           Último reporte de telemetría: {{ vuelo.ultimaActualizacion | date:'medium' }}
         </p>
       } @else {
-        <div class="error-container">
-          <p class="error-title">Aeronave fuera de alcance</p>
-          <p class="error-subtitle">El vuelo {{ callsign }} no fue detectado en el barrido actual del radar regional.</p>
+        <div>
+          <p>Aeronave fuera de alcance</p>
+          <p>El vuelo {{ callsign }} no fue detectado en el barrido actual del radar regional.</p>
         </div>
       }
     </div>

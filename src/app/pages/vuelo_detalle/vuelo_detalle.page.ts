@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { FlightService } from '../../core/services/flight.service';
 
 @Component({
-  selector: 'app_vuelo_detalle',
+  selector: 'app_vuelo_detalle', 
   standalone: true,
   imports: [CommonModule],
   templateUrl: './vuelo_detalle.page.html',
