@@ -4,11 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { FlightService } from '../../core/services/flight.service';
 
 @Component({
-  selector: 'app-vuelo-detalle',
+  selector: 'app_vuelo_detalle',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './vuelo-detalle.page.html',
-  styleUrls: ['./vuelo-detalle.page.css']
+  templateUrl: './vuelo_detalle.page.html',
+  styleUrls: ['./vuelo_detalle.page.css']
 })
 export class VueloDetallePage implements OnInit {
   callsign: string = '';
